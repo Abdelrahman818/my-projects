@@ -1,0 +1,15 @@
+section.paragraphs {
+  margin: auto;
+  margin-bottom: 50px;
+}
+main h1 {
+  font-size: 50px;
+  max-width: 670px;
+}
+section.projects h2 {
+  border-bottom: 3px #fff solid;
+  width: max-content;
+  padding-right: 30px;
+  padding-bottom: 10px;
+  margin-bottom: 70px;
+}

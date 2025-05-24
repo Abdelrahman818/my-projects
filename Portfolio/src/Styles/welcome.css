@@ -1,0 +1,15 @@
+.welcome-btn {
+  font-size: 40px;
+  top: 50%;
+  left: 50%;
+  height: 500px;
+  transform: translate(-50%, -50%);
+  span {
+    background-color: #00f4ff73;
+    width: 300px;
+    height: 100px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+  }
+}

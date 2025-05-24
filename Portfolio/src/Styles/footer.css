@@ -1,0 +1,32 @@
+footer .copy-right {
+  width: max-content;
+  margin: auto;
+}
+.footer-infos {
+  gap: 100px;
+}
+footer h4 {
+  margin: 10px 0px 20px -20px;
+}
+.phone-num {
+  cursor: unset;
+}
+footer ul li {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+@media (min-width: 300px) and (max-width: 700px) {
+  .copy-right {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .contact h4,
+  .download h4 {
+    margin: 10px 0px 30px -5px;
+    font-size: 16px;
+  }
+  ul.contacts {
+    font-size: 10px;
+  }
+}

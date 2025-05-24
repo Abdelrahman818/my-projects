@@ -1,0 +1,46 @@
+nav.main-nav {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  padding: .5rem 1rem;
+  height: 60px;
+}
+nav.main-nav .logo {
+  width: 100px;
+  height: 35px;
+}
+nav.main-nav .more {
+  transition-duration: .3s;
+}
+nav.main-nav .more i { 
+  font-size: 30px;
+  transition-duration: 0.7s;
+  margin-right: 15px;
+  cursor: pointer;
+}
+.more-options {
+  display: flex;
+  opacity: 0;
+  top: 60px;
+  right: 0px;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: unset;
+  list-style: none;
+  border-radius: 7px;
+  transition-duration: 0.3s;
+  width: 150px;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+}
+.more-options li {
+  padding: 0 15px 10px 15px;
+  cursor: pointer;
+}
+.more-options li:not(:last-child) {
+  border-bottom: 2px solid;
+  margin-bottom: 10px;
+}

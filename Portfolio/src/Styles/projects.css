@@ -1,0 +1,137 @@
+main section.projects h2 {
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  padding-right: 30px;
+  border-bottom: #eee solid 3px;
+}
+.project {
+  margin-bottom: 20px;
+}
+.project:not(:last-child)::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: hsl(180 15% 40% / 1);
+  margin-top: 30px;
+}
+.project-link {
+  background-color: var(--color-btns);
+  padding: 3px 45px;
+  width: max-content;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 20px;
+}
+.project-link a {
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none !important;
+}
+.next-img,
+.prev-img {
+  display: flex;
+  font-size: 60px;
+  background: var(--color-btns);
+  width: 50px;
+  height: 250px;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  transition-duration: 0.3s;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.prev-img {
+  left: -65px;
+}
+.next-img {
+  right: -65px;
+}
+.fade-img {
+  transition: opacity 0.5s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  pointer-events: none;
+}
+.fade-img.in {
+  opacity: 1;
+  pointer-events: auto;
+}
+.imgs-cont-fade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  transition: opacity 0.5s ease-in-out;
+}
+
+@media (min-width: 300px) and (max-width: 800) {
+  section.projects {
+    width: 90%;
+  }
+  .project p {
+    font-size: 12px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+}
+@media (min-width: 300px) and (max-width: 700px) {
+  .prev-img,
+  .next-img {
+    width: 20px;
+    height: 100px;
+    font-size: 40px;
+  }
+  .prev-img {
+    left: -25px;
+  }
+  .next-img {
+    right: -25px;
+  }
+}
+/* @media (min-width: 300px) and (max-width: 700px) {
+  .prev-img,
+  .next-img {
+    width: 30px;
+    height: 100px;
+    font-size: 40px;
+  }
+  .prev-img {
+    left: -35px;
+  }
+  .next-img {
+    right: -35px;
+  }
+} */
+@media (min-width: 300px) and (max-width:  500px) {
+  .imgs-cont-fade {
+    height: 160px;
+  }
+}
+@media (min-width: 500px) and (max-width:  600px) {
+  .imgs-cont-fade {
+    height: 230px;
+  }
+}
+@media (min-width: 600px) and (max-width:  700px) {
+  .imgs-cont-fade {
+    height: 300px;
+  }
+}
+@media (min-width: 700px) and (max-width:  800px) {
+  .imgs-cont-fade {
+    height: 400px;
+  }
+}
