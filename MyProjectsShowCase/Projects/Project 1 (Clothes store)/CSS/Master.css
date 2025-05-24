@@ -1,0 +1,482 @@
+* {
+  font-family: "Open Sans", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+  background-color: #333;
+}
+
+/* =============================================== */
+/* For header */
+/* =============================================== */
+
+.page {
+  position: relative;
+  width: 100%;
+  margin: auto;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  background-color: #0b0b0b;
+  width: 100%;
+  height: 60px;
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  width: calc(100% - 50px);
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+  width: 50px;
+  height: 50px;
+  color: #eee;
+  font-size: 35px;
+}
+
+.logo a {
+  color: #eee;
+}
+
+.links {
+  display: none;
+  width: 100%;
+}
+
+nav::before{
+  content: 'Welcome to my project';
+  display: block;
+  position: absolute;
+  color: #eee;
+  font-size: 18px;
+  left: 46%;
+  width: 195px;
+  transform: translateX(-50%);
+}
+
+.links ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.links ul li a {
+  text-decoration: none;
+  color: #eee;
+}
+
+.more {
+  margin-right: 30px;
+}
+
+.more i {
+  color: #eee;
+  transition-duration: 1s;
+}
+
+.more span {
+  display: none;
+  position: absolute;
+  background-color: #ddd;
+  border-radius: 10px;
+  right: 10px;
+  padding: 15px;
+  top: 60px;
+  z-index: 10;
+}
+
+.more span::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  right: 20px;
+  background-color: transparent;
+  border-top: transparent 15px solid;
+  border-bottom: #ddd 15px solid;
+  border-right: transparent 15px solid;
+  border-left: transparent 15px solid;
+  z-index: 10;
+}
+
+.more span ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.more span ul li {
+  width: 100%;
+  border-bottom: 1px #202020 solid;
+  padding: 5px 0px;
+}
+
+.more span ul li:last-child {
+  border: none;
+}
+
+nav ul li a {
+  color: unset;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+/* ======== */
+/* Hovers */
+/* ======== */
+
+.more[clicked] i {
+  transform: rotate(1turn);
+}
+
+.more[clicked] span {
+  display: block;
+}
+
+/* =============================================== */
+/* Offers */
+/* =============================================== */
+
+section.offers div {
+  position: absolute;
+  top: 10%;
+  left: 1%;
+}
+
+section.offers div > img {
+  width: 33%;
+  opacity: 0.6;
+}
+
+/* =============================================== */
+/* For Main content */
+/* =============================================== */
+
+.Template {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 60px);
+  transition-duration: 3s;
+}
+
+.Template img {
+  width: 100%;
+  height: 100%;
+}
+
+/* =============================================== */
+/* Products */
+/* =============================================== */
+
+section.products {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  perspective: 1000px;
+  margin-bottom: 30px;
+  margin-left: 5px;
+  min-width: 32%;
+}
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 21%;
+  min-width: 200px;
+  height: 255px;
+  transition-duration: 1s;
+  transform-style: preserve-3d;
+  padding: 10px;
+  background-color: #555;
+  border-radius: 15px;
+  position: relative;
+  box-shadow: 0 0 5px 1px #666;
+  cursor: pointer;
+}
+
+.face {
+  backface-visibility: hidden;
+}
+
+.front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.h-front img {
+  border-radius: 10px;
+  width: 200px;
+  height: 220px;
+  max-width: 98%;
+  max-height: 100%;
+}
+
+.front img {
+  border-radius: 10px;
+  width: 200px;
+  height: 220px;
+  max-width: 98%;
+  max-height: 100%;
+}
+
+.card .back {
+  display: flex;
+  align-items: flex-start;
+  position: absolute;
+  transform: rotateY(180deg);
+  width: 90%;
+  top: 10px;
+  left: 15px;
+}
+
+.card .back span::before {
+  content: "Some info";
+  position: relative;
+  top: 5px;
+  left: 45%;
+  font-size: 25px;
+  transform: translateX(-50%);
+  color: #eee;
+}
+
+.back span > a {
+  text-decoration: none;
+  color: #eee;
+  padding: 20px;
+  background-color: #676767;
+  border-radius: 40px;
+  position: absolute;
+  top: 180px;
+  left: 50%;
+  text-align: center;
+  transform: translateX(-50%);
+  width: 50%;
+}
+
+.back ul.data {
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  line-height: 1.8;
+  color: #ddd;
+}
+
+.products .container .card .face p {
+  font-family: "Playpen Sans", cursive;
+  text-align: center;
+  font-weight: bold;
+  color: #ddd;
+  font-size: 25px;
+}
+
+/* ========= */
+/* clicks */
+/* ========= */
+
+.card[clicked] {
+  transform: rotateY(-180deg);
+}
+
+/* =============================================== */
+/* Footer */
+/* =============================================== */
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 150px;
+  background-color: #202020;
+}
+
+.copy-right {
+  color: #ddd;
+  font-size: 20px;
+  display: flex;
+  align-self: center;
+}
+
+.copy-right span {
+  font-family: "Playpen Sans", cursive;
+  font-weight: bold;
+  margin: 0 10px 10px;
+}
+
+.s-media ul {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 500px;
+  font-size: 35px;
+}
+
+.s-media ul li a {
+  color: #111;
+}
+
+/* =============================================== */
+/* Media */
+/* =============================================== */
+
+/* =============================================== */
+/* Mobiles */
+/* =============================================== */
+
+@media (max-width: 250px) {
+  .page {
+    width: 115%;
+  }
+  .logo {
+    font-size: 20px;
+    margin: 5px;
+    font-size: 20px;
+    width: fit-content;
+  }
+
+  .more {
+    margin-right: 5px;
+    font-size: 15px;
+    width: 25px;
+  }
+
+  .links ul {
+    font-size: 10px;
+  }
+
+  .more {
+    font-size: 10px;
+    width: fit-content;
+    margin: 5px;
+  }
+
+  .copy-right {
+    font-size: 13px;
+  }
+
+  .s-media {
+    width: 100%;
+  }
+
+  .s-media ul {
+    width: 100%;
+    font-size: 20px;
+  }
+}
+
+/* =============================================== */
+/* L Mobile */
+/* =============================================== */
+
+@media (min-width: 251px) and (max-width: 439px) {
+  .page {
+    width: 104%;
+  }
+  .logo {
+    font-size: 20px;
+    margin: 5px;
+    font-size: 20px;
+    width: fit-content;
+  }
+  .more {
+    margin-right: 10px;
+    font-size: 15px;
+    width: 25px;
+  }
+  .container {
+    margin: 20px 5px;
+  }
+  .links ul {
+    font-size: 10px;
+  }
+  .more {
+    font-size: 12px;
+    width: fit-content;
+    margin: 5px;
+  }
+  .more i {
+    margin-right: 5px;
+  }
+  .copy-right {
+    font-size: 15px;
+    margin: auto;
+  }
+  .s-media {
+    width: 75%;
+  }
+  .s-media ul {
+    width: 100%;
+    font-size: 30px;
+  }
+}
+
+/* =============================================== */
+/* Tablets */
+/* =============================================== */
+
+@media (min-width: 440px) and (max-width: 949px) {
+  .page {
+    width: 104%;
+  }
+  .logo {
+    font-size: 20px;
+    margin: 5px;
+    font-size: 20px;
+    width: fit-content;
+  }
+  .more {
+    margin-right: 15px;
+    font-size: 15px;
+  }
+  .container {
+    margin: 20px 5px;
+  }
+  .links ul {
+    font-size: 15px;
+  }
+  .more {
+    font-size: 10px;
+    width: fit-content;
+    margin: 5px;
+  }
+  .more i {
+    margin-right: 5px;
+  }
+  .copy-right {
+    font-size: 15px;
+    margin: auto;
+  }
+  .s-media {
+    width: 75%;
+  }
+  .s-media ul {
+    width: 100%;
+    font-size: 30px;
+  }
+}

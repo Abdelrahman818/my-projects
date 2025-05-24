@@ -1,0 +1,436 @@
+:root {
+  --Scissors-Gradient: hsl(39, 89%, 49%), hsl(40, 84%, 53%);
+  --Paper-Gradient: #4865f4, #5671f5;
+  --Rock-Gradient: hsl(349, 71%, 52%), hsl(349, 70%, 56%);
+  --Lizard-Gradient: hsl(261, 73%, 60%), hsl(261, 72%, 63%);
+  --Cyan: hsl(189, 59%, 53%), hsl(189, 58%, 57%);
+  --Dark-Text: hsl(229, 25%, 31%);
+  --Score-Text: hsl(229, 64%, 46%);
+  --Header-Outline: hsl(217, 16%, 45%);
+  --Radial-Gradient: radial-gradient(
+    circle,
+    hsl(214, 47%, 23%),
+    hsl(237, 49%, 15%)
+  );
+}
+* {
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
+#app {
+  background-image: var(--Radial-Gradient);
+  z-index: -1;
+}
+header {
+  border: 3px solid var(--Header-Outline);
+  border-radius: 10px;
+}
+div.score p {
+  margin-bottom: -10px;
+  margin-top: 5px;
+  font-size: 15px;
+  color: var(--Score-Text);
+}
+span.score {
+  font-size: 35px;
+}
+h2 {
+  color: #fff;
+  font-weight: bolder;
+  font-size: 20px;
+}
+div.score {
+  width: 100px;
+  height: 70px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.triangle {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  top: calc(50% + 60px);
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: calc(100% - 120px);
+  justify-content: center;
+  align-items: center;
+  transition-duration: 1s;
+}
+.choices {
+  position: relative;
+  height: 100%;
+}
+section div:not(.triangle) > div {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0px 5px 2px 0px #aaa;
+  cursor: pointer;
+}
+div.paper {
+  left: -10px;
+}
+div.scissors {
+  right: -10px;
+}
+div.rock {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+span.paper,
+span.rock,
+span.scissors,
+span.my-p,
+span.my-r,
+span.my-s {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+}
+.parent-paper {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  top: calc(30% + 20px);
+  left: calc(50% - 115px);
+  transition-duration: 0.7s;
+  transform: translateX(-50%);
+}
+.parent-scissors {
+  position: absolute;
+  top: calc(30% + 20px);
+  left: calc(50% + 115px);
+  width: 130px;
+  height: 130px;
+  transition-duration: 0.7s;
+  transform: translateX(-50%);
+}
+.parent-rock {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  bottom: 120px;
+  left: 50%;
+  transition-duration: 0.7s;
+  transform: translateX(-50%);
+}
+span.paper {
+  background-image: linear-gradient(var(--Paper-Gradient));
+  box-shadow: inset 0px -5px 0 0 var(--Score-Text);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+span.scissors {
+  background-image: linear-gradient(var(--Scissors-Gradient));
+  box-shadow: inset 0px -5px 0 0 #a17e00;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+span.rock {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: linear-gradient(var(--Rock-Gradient));
+  box-shadow: inset 0 -5px 0 0 #951947;
+}
+div.rules {
+  width: 110px;
+  height: 40px;
+  bottom: 30px;
+  right: 100px;
+  text-align: center;
+  border: 2px solid var(--Header-Outline);
+  border-radius: 8px;
+  cursor: pointer;
+}
+span.rules {
+  color: #fff;
+  font-size: 20px;
+  margin-top: -3px;
+  font-weight: 550;
+  letter-spacing: 1.5px;
+}
+.game-rules-box {
+  top: calc(50% + 35px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  height: 450px;
+  border-radius: 20px;
+  background: #eee;
+  transition-duration: 0.5s;
+}
+div.game-rules {
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+div.msg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.7;
+  transition-duration: 0.5s;
+}
+header.rules-header {
+  border: none;
+  width: 90%;
+  top: 40px;
+}
+header.rules-header h2 {
+  color: #000;
+}
+header.rules-header span {
+  cursor: pointer;
+}
+main {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+[hide] {
+  opacity: 0 !important;
+  transition-duration: 0.3s;
+}
+[choosed] div {
+  cursor: default !important;
+}
+[choosed] span {
+  cursor: default !important;
+}
+.parent-paper[choosed] {
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1.4);
+  left: 33.3%;
+}
+.parent-rock[choosed] {
+  bottom: 50%;
+  transform: translate(-50%, 50%) scale(1.4);
+  left: 30%;
+}
+.parent-scissors[choosed] {
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1.4);
+  left: 30%;
+}
+
+.parent-paper[remove] {
+  left: -80px;
+}
+.parent-scissors[remove] {
+  left: -80px;
+}
+.parent-rock[remove] {
+  bottom: 105%;
+}
+
+.my-parent-p,
+.my-parent-r,
+.my-parent-s {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 70%;
+  width: 130px;
+  height: 130px;
+  transform: translate(-50%, -50%) scale(1.4);
+  transition-duration: 0.7s;
+}
+span.my-p {
+  background-image: linear-gradient(var(--Paper-Gradient));
+  box-shadow: inset 0px -5px 0 0 var(--Score-Text);
+  z-index: -1;
+}
+span.my-r {
+  background-image: linear-gradient(var(--Rock-Gradient));
+  box-shadow: inset 0 -5px 0 0 #951947;
+  z-index: -1;
+}
+span.my-s {
+  background-image: linear-gradient(var(--Scissors-Gradient));
+  box-shadow: inset 0px -5px 0 0 #a17e00;
+  z-index: -1;
+}
+p.pc {
+  position: absolute;
+  top: -65px;
+  color: #fff;
+  font-size: 30px;
+  letter-spacing: 3px;
+  transition-duration: 0.3s;
+}
+.pc {
+  cursor: default !important;
+}
+.pc div {
+  cursor: default !important;
+}
+.pc span {
+  cursor: default !important;
+}
+p.user {
+  position: absolute;
+  top: -70px;
+  left: 20%;
+  font-size: 30px;
+  color: #fff;
+  letter-spacing: 2px;
+  transition-duration: 0.3s;
+}
+.play-again-cont {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 70px;
+  transition-duration: 1s !important;
+}
+span.play-again-btn {
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  margin-bottom: -10px;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+h2.game-result {
+  font-size: 40px;
+  margin-top: -40px;
+  letter-spacing: 2px;
+}
+[win] div.cont {
+  top: 50%;
+  z-index: -99;
+  transition-duration: 0.5s;
+}
+span.circle-one {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  opacity: 0.3;
+}
+span.circle-two {
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  opacity: 0.1;
+}
+span.circle-three {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  opacity: 0.02;
+}
+@media (min-width: 360px) and (max-width: 500px){
+  div#app>header{
+    width: 75% !important;
+  }
+  .triangle{
+    top: calc(50% + 40px);
+  }
+  .parent-paper{
+    top: 30%;
+  }
+  .parent-scissors{
+    top: 30%;
+  }
+  .parent-rock{
+    bottom: 140px;
+  }
+  div.rules{
+    right: 50%;
+    transform: translateX(50%);
+  }
+  .game-rules-box{
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+  }
+  div.game-rules{
+    transform: translate(-50%, -50%);
+  }
+  [choosed]{transform: translate(-50%, -50%) scale(1) !important;}
+  .parent-paper[choosed]{
+    top: 50%;
+    left: 25%;
+  }
+  .parent-rock[choosed]{
+    bottom: 30%;
+    left: 25%;
+  }
+  .my-parent-p, .my-parent-r, .my-parent-s{
+    transform: translate(-50%, -50%) scale(1);
+    left: 75%;
+  }
+  span.circle-one{
+    width: 145px;
+    height: 145px;
+  }
+  span.circle-two{
+    width: 170px;
+    height: 170px;
+  }
+  span.circle-three{
+    width: 185px;
+    height: 185px;
+  }
+}
+@media (min-height: 740px) and (max-height:950px){
+  .parent-paper{
+    top: 33%;
+  }
+  .parent-scissors{
+    top: 33%;
+  }
+  .parent-rock{
+    bottom: 25%;
+  }
+}
+@media (min-height: 951px) and (max-width: 1000px){
+  .parent-paper{
+    top: 38%;
+  }
+  .parent-scissors{
+    top: 38%;
+  }
+  .parent-rock{
+    bottom: 30%;
+  }
+}
+@media (min-height: 1001px) (max-height: 1500px){
+  .parent-paper{
+    top: 42%;
+  }
+  .parent-scissors{
+    top: 42%;
+  }
+  .parent-rock{
+    bottom: 35%;
+  }
+}

@@ -1,0 +1,578 @@
+/* General Start */
+
+:root{
+    --Marine_blue: hsl(213, 96%, 18%);
+    --Purplish_blue: hsl(243, 100%, 62%);
+    --Pastel_blue: hsl(228, 100%, 84%);
+    --Light_blue: hsl(206, 94%, 87%);
+    --Strawberry_red: hsl(354, 84%, 57%);
+    --Cool_gray: hsl(231, 11%, 63%);
+    --Light_gray: hsl(229, 24%, 87%);
+    --Magnolia: hsl(217, 100%, 97%);
+    --Alabaster: hsl(231, 100%, 99%);
+    --White: hsl(0, 0%, 100%);}
+body{
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #ddd;}
+*{
+    box-sizing: border-box;}
+.step-one, .step-two, .step-three, .step-four, .step-five{
+    display: none;
+    margin: 30px 0;
+    position: absolute;
+    top: 0;
+    left: 330px;
+    flex-direction: column;
+    width: 500px;
+    height: 450px;
+}
+[active]{display: flex;}
+
+/* General End */
+
+/* Step 1 Start */
+
+.page{
+    width: 900px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 12%);
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+h2{
+    font-size: 35px;
+    color: var(--Marine_blue);
+}
+
+h3{
+    font-size: 20px;
+    color: var(--Marine_blue);
+    font-weight: bold;
+}
+
+p{
+    color: var(--Cool_gray);
+}
+
+aside{
+    width: 250px;
+    color: #ccc;
+}
+
+aside p{
+    color: var(--Cool_gray);
+    font-weight: normal;
+}
+
+.all-steps{
+    position: absolute;
+    top: 25px;
+    left: 100px;
+    font-weight: bold;
+}
+
+label{
+    display: flex;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: var(--Marine_blue);
+    justify-content: space-between;
+}
+
+input{
+    margin-bottom: 25px;
+    width: 100%;
+    border: none;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: var(--Cool_gray);
+    padding: 10px 0px 10px 20px;
+    outline: none;
+    font-size: 16px;
+}
+
+.step-one{
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 330px;
+}
+
+.step-title{
+    margin: 30px 0;
+}
+
+.steps-info{
+    font-size: 20px;
+}
+
+.first, .second, .third, .fourth{
+    margin: 20px 0;
+}
+
+.first::before{
+    content: '1';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ccc;
+    position: absolute;
+    left: -45px;
+    border-color: #ccc;
+    border-radius: 50%;
+    border-width: 2px;
+    border-style: solid;
+    width: 30px;
+    height: 30px;
+    transition-duration: .5s;
+}
+.second::before{
+    content: '2';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ccc;
+    border-radius: 50%;
+    border-color: #ccc;
+    border-width: 2px;
+    position: absolute;
+    left: -45px;
+    border-style: solid;
+    width: 30px;
+    height: 30px;
+    transition-duration: .5s;
+}
+.third::before{
+    content: '3';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ccc;
+    border-radius: 50%;
+    border-color: #ccc;
+    border-width: 2px;
+    position: absolute;
+    left: -45px;
+    border-style: solid;
+    width: 30px;
+    height: 30px;
+    transition-duration: .5s;
+}
+
+.fourth::before{
+    content: '4';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ccc;
+    border-radius: 50%;
+    border-color: #ccc;
+    border-width: 2px;
+    position: absolute;
+    left: -45px;
+    border-style: solid;
+    width: 30px;
+    height: 30px;
+    transition-duration: .5s;
+}
+
+#next-step {
+    position: absolute;
+    bottom: 0px;
+    right: 0;
+    color: #ddd;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: var(--Marine_blue);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#prev-step {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    color: var(--Cool_gray);
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+[curr]::before{
+    background-color: var(--Light_blue);
+    color: var(--Marine_blue);
+    border-color: var(--Light_blue);
+    transition-duration: .5s;
+}
+
+span[inv], span[empty]{
+    display: block;
+    color: red;
+    font-size: 17px;
+    font-weight: normal;
+}
+
+/* Step 1 End */
+
+/* Step 2 Start */
+
+.plans {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.plans > div:not(.switch) {
+    transition-duration: .3s;
+    display: flex;
+    width: calc(100% / 3 - 20px);
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--Light_gray);
+    border-radius: 15px;
+    padding: 10px 0px 10px 15px;
+}
+
+div.text {
+    line-height: 1.5;
+    margin-top: 50px;
+}
+
+span[inv-p] {
+    position: relative;
+    bottom: -2.5%;
+    left: 30%;
+    width: max-content;
+    color: red;
+}
+
+.plans div:hover:not(.switch) {
+    cursor: pointer;
+    border-color: var(--Marine_blue);
+}
+
+.switch {
+    display: flex;
+    margin-top: 50px;
+    width: 190px;
+    bottom: 120px;
+    justify-content: space-between;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.switch span.s::after {
+    content: '';
+    display: block;
+    position: relative;
+    top: -26px;
+    left: 0px;
+    width: 60px;
+    height: 22px;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 20px;
+    border-color: var(--Marine_blue);
+    transition-duration: .5s;
+}
+
+.switch span.s::before {
+    content: '';
+    position: relative;
+    top: -2px;
+    right: -40px;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: var(--Marine_blue);
+    border-radius: 50%;
+    transition-duration: .5s;
+}
+
+.plans [selected-p] {
+    border-color: var(--Marine_blue) !important;
+}
+
+.plan {
+    max-height: 200px;
+}
+
+.right {
+    color: var(--Marine_blue);
+    transition-duration: .5s;
+}
+
+.left {
+    color: var(--Cool_gray);
+    transition-duration: .5s;
+}
+
+.switch[on] span.s::before {
+    transform: translateX(-36px);
+    z-index: 9999999;
+    background-color: var(--Light_gray);
+}
+
+.switch[on] span.s::after {
+    background-color: var(--Marine_blue);
+}
+
+.switch[on] span.left {
+    color: var(--Marine_blue);
+}
+
+.switch[on] span.right {
+    color: var(--Cool_gray);
+}
+
+.plans .plan span[bonus] {
+    color: var(--Marine_blue);
+}
+
+/* Step 2 End */
+
+/* Step 3 Start */
+
+.step-three label {
+    height: 70px;
+    flex-direction: column;
+    position: relative;
+    left: 10px;
+    width: 100%;
+    padding: 10px 0px 10px 10px;
+    border-color: var(--Cool_gray);
+    border-width: 2px;
+    margin: -10px;
+    border-style: solid;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.step-three label h3, .step-three label p {
+    position: relative;
+    left: 50px;
+    width: max-content;
+}
+
+.step-three input {
+    position: relative;
+    width: unset;
+    top: -30px;
+    left: 25px;
+}
+
+.step-three label span {
+    position: absolute;
+    right: 15px;
+    font-weight: normal;
+    top: 50%;
+    color: var(--Purplish_blue);
+    transform: translateY(-50%);
+}
+
+.step-three label:hover, .step-three input:hover {
+    border-color: var(--Marine_blue);
+}
+
+label[choosed] {
+    border-color: var(--Marine_blue);
+}
+
+/* Step 3 End */
+
+/* Step 4 Start */
+
+div.total {
+    display: block;
+    background-color: #eee;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--Cool_gray);
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.plan-price {
+    display: flex;
+    justify-content: space-between;
+    color: var(--Marine_blue);
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--Cool_gray);
+}
+
+.change {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.feature-container {
+    display: flex;
+    justify-content: space-between;
+    font-weight: normal;
+    font-size: 16px;
+    flex-wrap: wrap;
+}
+
+span.feature {
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+span.total {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px;
+}
+
+.final-price {
+    color: var(--Purplish_blue);
+    font-weight: bold;
+    font-size: 22px;
+}
+
+/* Step 4 End */
+
+/* Step 5 Start */
+
+.step-five[active] {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+span.end {
+    color: var(--Marine_blue);
+    font-size: 35px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+span.end+p {
+    text-align: center;
+    line-height: 1.3;
+}
+
+/* Step 5 End */
+
+/* Media */
+
+/* For phones */
+
+@media (min-width: 375px) and (max-width: 910px) {
+    h2 {
+        font-size: 25px !important;
+    }
+    p {
+        font-size: 14px !important;
+    }
+    .step-title {
+        margin: 20px 0;
+    }
+    .page {
+        width: 350px;
+    }
+    .background-img svg {
+        position: absolute;
+        top: -650px;
+        width: 120%;
+        left: -35px;
+    }
+    .all-steps div p, .all-steps div span {
+        width: 0;
+        height: 0;
+        color: transparent;
+    }
+    .all-steps div {
+        position: absolute;
+        top: 20px;
+    }
+    .first {
+        left: 15px;
+    }
+    .second{
+        left: 65px;
+    }
+    .third {
+        left: 115px;
+    }
+    .fourth {
+        left: 165px;
+    }
+    [active] {
+        background-color: #fff;
+        padding: 0 25px 0 25px;
+        top: 100px;
+        border-radius: 10px;
+        width: 350px;
+        left: 50%;
+        transform: translateX(-50%);
+        min-height: 410px;
+        max-height: 480px;
+        margin: 10px 0 0 0;
+        height: unset;
+    }
+    .step-one .step-title {
+        margin: 25px 0;
+    }
+    #next-step {
+        position: fixed;
+        bottom: -90px;
+        right: 0;
+        width: 105px;
+    }
+    #prev-step {
+        position: fixed;
+        bottom: -90px;
+        left: 0px;
+        width: 105px;
+    }
+    /* ================== */
+    .plan {
+        width: 100% !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        margin: 5px 0;
+    }
+    div.text {
+        margin: 0 0 0 20px;
+    }
+    .switch {
+        margin-top: 20px;
+    }
+    .step-three input{
+        left: 20px;
+    }
+    label h3 {
+        font-size: 18px;
+        left: 30px !important;
+    }
+    label p {
+        font-size: 14px;
+        left: 30px !important;
+    }
+    .step-five[active] {
+        width: 85%;
+    }
+}

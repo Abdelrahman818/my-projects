@@ -1,0 +1,382 @@
+:root {
+
+    --main-background-1: hsl(222, 26%, 31%);
+    --keypad-background-1: hsl(223, 31%, 20%);
+    --screen-background-1: hsl(224, 36%, 15%);
+    --D-R-background-1: hsl(225, 21%, 49%);
+    --D-R-shadow-1: hsl(224, 28%, 35%);
+    --enter-background-1: hsl(6, 63%, 50%);
+    --enter-shadow-1: hsl(6, 70%, 34%);
+    --key-background-1: hsl(30, 25%, 89%);
+    --key-shadow-1: hsl(28, 16%, 65%);
+    --text-color-1: hsl(221, 14%, 31%);
+
+    --main-background-2: hsl(0, 0%, 90%);
+    --keypad-background-2: hsl(0, 5%, 81%);
+    --screen-background-2: hsl(0, 0%, 93%);
+    --d-c-key-background-2: hsl(185, 42%, 37%);
+    --v-d-c-key-shadow-2: hsl(185, 58%, 25%);
+    --o-key-background-2: hsl(25, 98%, 40%);
+    --d-o-key-shadow-2: hsl(25, 99%, 27%);
+    --y-key-background-2: hsl(45, 7%, 89%);
+    --o-key-shadow-2: hsl(35, 11%, 61%);
+    --text-2: hsl(60, 10%, 19%);
+
+    --main-background-3: hsl(268, 75%, 9%);
+    --screen-background-3: hsl(268, 71%, 12%);
+    --key-background-3: hsl(281, 89%, 26%);
+    --key-shadow-3: hsl(285, 91%, 52%);
+    --key-background-D-R-3: hsl(176, 100%, 44%);
+    --key-shadow-D-R-3: hsl(177, 92%, 70%);
+    --key-background-3: hsl(268, 47%, 21%);
+    --key-d-shadow-3: hsl(290deg 91.89% 26.84%);;
+    --text-3: hsl(52, 100%, 62%);
+    --text-2-3: hsl(198, 20%, 13%);
+}
+
+* {
+    -webkit-user-select: none;
+}
+
+body {
+    
+    font-family: 'League Spartan', sans-serif;
+}
+
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+div.calculator { 
+    position: absolute;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 440px;
+    margin: auto;
+}
+
+div.control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    position: relative;
+    top: -25px;
+}
+
+div.control > span {
+    font-weight: bold;
+    font-size: 35px;
+    letter-spacing: 3px;
+}
+
+div.control .themes .text {
+    margin-right: 20px;
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+div.control .themes .current-theme {
+    position: relative;
+    top: -25px;
+}
+
+div.control .themes .text::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 0;
+    display: block;
+    width: 90px;
+    height: 25px;
+    border-radius: 20px;
+    padding: 1px;
+    cursor: pointer;
+}
+
+div.control .themes .text::after {
+    content: '';
+    position: absolute;
+    top: 13px;
+    right: 65px;
+    display: block;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+div.control .themes .current-theme span {
+    margin: 0 10px;
+}
+
+div.result {
+    display: flex;
+    align-items: center;
+    font-size: 50px;
+    width: 95%;
+    padding-right: 5%;
+    height: 100px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+    direction: rtl;
+}
+
+div.result::-webkit-scrollbar {
+    height: 5px;
+}
+  
+div.result::-webkit-scrollbar-thumb {
+    background-color: #333;
+    border-radius: 5px;
+}
+
+div.key-pad {
+    padding: 20px;
+    border-radius: 10px;
+}
+
+div.keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    width: 100%;
+    height: 410px;
+    justify-items: center;
+    align-items: center;
+    gap: 20px;
+    border-radius: 20px;
+}
+
+div.keys span {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+span.reset {
+    grid-area: 5 / 1 / 5 / 3;
+    width: 100% ;
+}
+
+span.enter {
+    grid-area: 5 / 3 / 5 / 5;
+    width: 100% ;
+}
+
+.go-home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.page[one] span.go-home {
+    color: var(--keypad-background-2);
+    background: var(--keypad-background-1);
+}
+
+.page[two] span.go-home {
+    background: var(--d-c-key-background-2);
+    color: var(--keypad-background-2);
+}
+
+
+.page[three] span.go-home {
+    background: var(--key-d-shadow-3);
+    color: var(--text-3);
+}
+
+/* ================================= */
+/* themes */
+/* ================================= */
+
+
+.page[one] {
+    background-color: var(--main-background-1);
+
+    div.control{
+        color: #fff;
+    }
+    div.result {
+        color: #fff;
+        background-color: var(--screen-background-1);
+    }
+    div.key-pad {
+    background-color: var(--keypad-background-1);
+    }
+    div.keys .key {
+        background-color: var(--key-background-1);
+        box-shadow: 0 4px 0 0 var(--key-shadow-1);
+        color: var(--text-color-1);
+    }
+    span.reset {
+        background-color: var(--D-R-background-1);
+        box-shadow: 0 4px 0 0 var(--D-R-shadow-1) ;
+        color: #fff ;
+    }
+    span.enter {
+        background-color: var(--enter-background-1) ;
+        box-shadow: 0 4px 0 0 var(--enter-shadow-1) ;
+        color: #fff ;
+    }
+    span.del {
+        background-color: var(--D-R-background-1) ;
+        box-shadow: 0 4px 0 0 var(--D-R-shadow-1) ;
+        color: #fff ;
+    }
+    div.control .themes .text::before {
+        background-color: var(--keypad-background-1);
+    }
+    div.control .themes .text::after {
+        background-color: var(--enter-background-1);
+        transform: translateX(0px);
+        transition-duration: .5s;
+    }
+    span.del:hover {
+        background-color: hsl(225deg 12.46% 66.17%);
+    }
+    span.reset:hover {
+        background-color: hsl(225deg 12.46% 66.17%);
+    }
+    span.enter:hover {
+        background-color: hsl(6deg 58.23% 56.26%);
+    }
+}
+
+.page[two] {
+    background-color: var(--main-background-2);
+
+    div.control{
+        color: var(--text-2);
+    }
+    div.result {
+        color: var(--text-2);
+        background-color: var(--screen-background-2);
+    }
+    div.key-pad {
+        background-color: var(--keypad-background-2);
+    }
+    div.keys .key {
+        background-color: var(--y-key-background-2);
+        box-shadow: 0 4px 0 0 var(--o-key-shadow-2);
+        color: var(--text-2);
+    }
+    span.reset {
+        background-color: var(--d-c-key-background-2);
+        box-shadow: 0 4px 0 0 var(--v-d-c-key-shadow-2);
+        color: #fff;
+    }
+    span.enter {
+        background-color: var(--o-key-background-2);
+        box-shadow: 0 4px 0 0 var(--d-o-key-shadow-2);
+        color: #fff;
+    }
+    span.del {
+        background-color: var(--d-c-key-background-2);
+        box-shadow: 0 4px 0 0 var(--v-d-c-key-shadow-2);
+        color: #fff;
+    }
+    div.control .themes .text::before {
+        background-color: var(--keypad-background-2);
+    }
+    div.control .themes .text::after {
+        background-color: var(--o-key-background-2);
+        right: 35px;
+        transition-duration: .5s;
+    }
+    span.enter:hover {
+        background-color: hsl(25deg 85.04% 53.63%);
+    }
+    span.reset:hover {
+        background-color: hsl(185deg 27.4% 47.34%);
+    }
+    span.del:hover {
+        background-color: hsl(185deg 27.4% 47.34%);
+    }
+    span.key:hover {
+        background-color: #fff;
+    }
+}
+
+.page[three] {
+    background-color: var(--main-background-3);
+
+    div.control{
+        color: var(--text-3);
+    }
+    div.result {
+        color: var(--text-3);
+        background-color: var(--screen-background-3);
+    }
+    div.key-pad {
+        background-color: var(--screen-background-3);
+    }
+    div.keys .key {
+        background-color: var(--key-background-3);
+        box-shadow: 0 4px 0 0 var(--key-d-shadow-3);
+        color: var(--text-3);
+    }
+    span.reset {
+        background-color: var(--key-d-shadow-3);
+        box-shadow: 0 4px 0 0 var(--key-shadow-3);
+        color: #fff;
+    }
+    span.enter {
+        background-color: var(--key-background-D-R-3);
+        box-shadow: 0 4px 0 0 var(--key-shadow-D-R-3);
+        color: #000;
+    }
+    span.del {
+        background-color: var(--key-d-shadow-3);
+        box-shadow: 0 4px 0 0 var(--key-shadow-3);
+        color: #fff;
+    }
+    div.control .themes .text::before {
+        background-color: var(--screen-background-3);
+    }
+    div.control .themes .text::after {
+        background-color: var(--key-background-D-R-3);
+        transform: translateX(60px);
+        transition-duration: .5s;
+    }
+    span.del:hover {
+        background-color: hsl(290deg 51.73% 34.76%);
+    }
+    span.reset:hover {
+        background-color: hsl(290deg 51.73% 34.76%);
+    }
+    span.enter:hover {
+        background-color: hsl(176deg 55.53% 57.51%);
+    }
+    span.key:hover {
+        background-color: hsl(290deg 57.08% 43.2%);
+    }
+}
+
+@media (min-width: 300px) and (max-width: 500px) {
+    div.calculator {
+        width: 300px;
+    }
+    div.keys {
+        height: 380px;
+    }
+}
