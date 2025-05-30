@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <title>Browser extensions manager UI</title>
+  <link rel="stylesheet" href="./styles/bootstrap.min.css">
+  <link rel="stylesheet" href="./styles/Normalize.css">
+  <link rel="stylesheet" href="./styles/styles.css">
+</head>
+<body>
+  <div id="root" class="light">
+    <div class="bar d-flex justify-content-between align-items-center">
+      <div class="logo d-flex align-items-center">
+        <img src="./assets/images/logo.svg" alt="">
+        <span>Extentions</span>
+      </div>
+      <div class="switch-theme mr-4">
+        <span></span>
+      </div>
+    </div>
+    <main>
+      <div class="exts-header d-flex flex-row justify-content-between align-items-center">
+        <h3>Extentions List</h3>
+        <div class="filter">
+          <span class="selected">All</span>
+          <span>Active</span>
+          <span>Inactive</span>
+        </div>
+      </div>
+      <div class="exts-cont">
+        <!-- Automaticly inject extentions -->
+      </div>
+    </main>
+  </div>
+</body>
+<script type="module" src="./logic/app.js"></script>
+</html>

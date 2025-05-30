@@ -1,0 +1,275 @@
+:root {
+  /* Colors */
+
+  /* Natural */
+  --Neutral-900: hsl(227, 75%, 14%);
+  --Neutral-800: hsl(226, 25%, 17%);
+  --Neutral-700: hsl(225, 23%, 24%);
+  --Neutral-600: hsl(226, 11%, 37%);
+  --Neutral-300: hsl(0, 0%, 78%);
+  --Neutral-200: hsl(217, 61%, 90%);
+  --Neutral-100: hsl(0, 0%, 93%);
+  --Neutral-0: hsl(200, 60%, 99%);
+
+  /* Red */
+  --Red-400: hsl(3, 86%, 64%);
+  --Red-500: hsl(3, 71%, 56%);
+  --Red-700: hsl(3, 77%, 44%);
+
+  /* Gradients */
+  --Light-Gradient: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
+  --Dark-Gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
+}
+* {
+  box-sizing: border-box;
+}
+#root.dark {
+  background: var(--Dark-Gradient);
+  padding: 50px 100px 0 100px;
+  min-height: 100vh;
+  color: #fff;
+  .bar {
+    height: 50px;
+    background-color: var(--Neutral-800);
+    margin-bottom: 70px;
+    border-radius: 8px;
+  }
+  .bar .logo img {
+    height: 40px;
+    width: 40px;
+    margin-left: 10px;
+    object-fit: cover;
+    object-position: left;
+    overflow: hidden;
+  }
+  .bar .logo span {
+    font-size: 25px;
+    font-weight: 500;
+    margin-left: 20px;
+  }
+  .switch-theme {
+    background-image: url(../assets/images/icon-sun.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    object-fit: cover;
+    width: 30px;
+    height: 30px;
+    background-color: var(--Neutral-600);
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .exts-header {
+    margin-bottom: 20px;
+  }
+  .infos .ext-icon {
+    width: 50px;
+  }
+  h3 {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .filter span {
+    margin-right: 20px;
+    background-color: var(--Neutral-600);
+    padding: 5px 15px;
+    border-radius: 100px;
+    cursor: pointer;
+  }
+  .filter span:hover,
+  .bar .switch-theme:hover,
+  .filter span.selected {
+    outline: 2px solid var(--Red-500);
+    outline-offset: 1px;
+  }
+  .filter span.selected {
+    background-color: var(--Red-500);
+    color: var(--Neutral-900);
+  }
+  .exts-cont {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 350px));
+    gap: 10px;
+    padding-bottom: 30px;
+  }
+  .ext-card {
+    background-color: var(--Neutral-800);
+    border-radius: 10px;
+    padding: 10px;
+  }
+  h4 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .text p {
+    color: var(--Neutral-300);
+  }
+  .remove {
+    border: solid 1px var(--Neutral-600);
+    border-radius: 100px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  .remove:hover {
+    box-shadow: 0px 0 3px 2px var(--Red-700);
+  }
+  .switch {
+    position: relative;
+    height: 20px;
+    width: 40px;
+    border-radius: 100px;
+    transition-duration: .3s;
+    cursor: pointer;
+  }
+  .switch.inactive {
+    background-color: var(--Neutral-600);
+    .ball {
+      left: 3px;
+    }
+  }
+  .switch.active {
+    background-color: var(--Red-400);
+    .ball {
+      left: calc(100% - 3px);
+      transform: translateX(-100%);
+    }
+  }
+  .ball {
+    position: absolute;
+    top: 2px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #fff;
+    transition-duration: .3s;
+  }
+}
+
+/* ====================================================================== */
+/* ============================= Light Theme ============================ */
+/* ====================================================================== */
+
+#root.light {
+  background: var(--Light-Gradient);
+  padding: 50px 100px 0 100px;
+  min-height: 100vh;
+  .bar {
+    height: 50px;
+    background-color: var(--Neutral-0);
+    margin-bottom: 70px;
+    border-radius: 8px;
+  }
+  .bar .logo img {
+    height: 40px;
+    width: 40px;
+    margin-left: 10px;
+    object-fit: cover;
+    object-position: left;
+    overflow: hidden;
+  }
+  .bar .logo span {
+    font-size: 25px;
+    font-weight: 500;
+    margin-left: 20px;
+    color: var(--Neutral-900);
+  }
+  .switch-theme {
+    background-image: url(../assets/images/icon-moon.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    object-fit: cover;
+    width: 30px;
+    height: 30px;
+    background-color: var(--Neutral-100);
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .exts-header {
+    margin-bottom: 20px;
+  }
+  .infos .ext-icon {
+    width: 50px;
+  }
+  h3 {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .filter span {
+    margin-right: 20px;
+    background-color: var(--Neutral-0);
+    padding: 5px 15px;
+    border-radius: 100px;
+    cursor: pointer;
+  }
+  .bar .switch-theme:hover{
+    background-color: var(--Neutral-300);
+  }
+  .filter span:hover {
+    background-color: var(--Neutral-100);
+  }
+  .filter span.selected {
+    background-color: var(--Red-500);
+    color: var(--Neutral-900);
+  }
+  .exts-cont {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 350px));
+    gap: 10px;
+    padding-bottom: 30px;
+  }
+  .ext-card {
+    background-color: var(--Neutral-0);
+    border-radius: 10px;
+    padding: 10px;
+  }
+  h4 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: var(--Neutral-700);
+  }
+  .text p {
+    color: var(--Neutral-600);
+  }
+  .remove {
+    border: solid 1px var(--Neutral-600);
+    border-radius: 100px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  .remove:hover {
+    box-shadow: 0px 0 3px 2px var(--Red-700);
+    background-color: var(--Red-700);
+    color: #fff;
+  }
+  .switch {
+    position: relative;
+    height: 20px;
+    width: 40px;
+    border-radius: 100px;
+    transition-duration: .3s;
+    cursor: pointer;
+  }
+  .switch.inactive {
+    background-color: var(--Neutral-300);
+    .ball {
+      left: 3px;
+    }
+  }
+  .switch.active {
+    background-color: var(--Red-400);
+    .ball {
+      left: calc(100% - 3px);
+      transform: translateX(-100%);
+    }
+  }
+  .ball {
+    position: absolute;
+    top: 2px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #fff;
+    transition-duration: .3s;
+  }
+}

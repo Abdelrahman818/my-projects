@@ -1,0 +1,86 @@
+"use strict";
+
+function len(param) {
+    let i = 0;
+    while (true) {
+        if (param[i] === undefined)
+            break;
+        i++;
+    }
+    return i;
+}
+function strRepeat(str, repeates, isSpace = false, spaceType = " ") {
+    if (typeof str !== "string")
+        throw "You can only repeat a string";
+    else if (typeof repeates !== "number")
+        throw "Number of repeats must be integer";
+    else if (typeof isSpace !== "boolean")
+        throw "Number of repeats must be boolean value";
+    let repeated = "";
+    if (isSpace) {
+        for (let i = 0; i < repeates; i++) {
+            if (i + 1 === repeates) {
+                repeated += str;
+            }
+            else {
+                repeated += str + spaceType;
+            }
+        }
+    }
+    else {
+        for (let i = 0; i < repeates; i++)
+            repeated += str;
+    }
+    return repeated;
+}
+function reverse(data) {
+    if (typeof data === "number")
+        data = `${data}`;
+    let rev = "";
+    for (let i = len(data) - 1; i >= 0; i--) {
+        rev += data[i];
+    }
+    return rev;
+}
+function createElement(elementName, options = {}, inSideElement = "") {
+    const el = document.createElement(elementName);
+    if (typeof options === 'object' && !Array.isArray(options)) {
+        for (const [attr, val] of Object.entries(options)) {
+            el.setAttribute(attr, val);
+        }
+    }
+    el.innerHTML = inSideElement;
+    return el;
+}
+function toArray(data) {
+    let arr = [];
+    for (let i = 0; i < len(data); i++) {
+        arr.push(data[i]);
+    }
+    return arr;
+}
+function toggleIt(clickOn, actOn, attr) {
+    clickOn.onclick = () => actOn.toggleAttribute(attr);
+}
+function formatPhoneNumber(number) {
+    const match = number.match(/^(\d{4})(\d{3})(\d{4})$/);
+    if (match)
+        return match[1] + " " + match[2] + " " + match[3];
+    else
+        return number;
+}
+function capitalizeFirst(str) {
+    if (!str)
+        return "";
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+}
+export {
+  len,
+  strRepeat,
+  reverse,
+  createElement,
+  toArray,
+  toggleIt,
+  formatPhoneNumber,
+  capitalizeFirst,
+};
