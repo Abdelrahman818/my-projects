@@ -1,0 +1,36 @@
+section.projects {
+  background-image: url('../assets/bg/bg2.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.arrows {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% - 30px);
+  height: 70px;
+  z-index: 1;
+}
+.arrow {
+  background-image: url('../assets/icons/arrow.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 35px;
+  height: 70px;
+  cursor: pointer;
+  z-index: 999;
+}
+.arrow.left {
+  transform: rotate(180deg);
+}
+.project-name {
+  width: max-content;
+  margin: auto;
+  font-size: 25px;
+  text-align: center;
+}

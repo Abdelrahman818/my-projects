@@ -62,7 +62,7 @@ const Projects = () => {
                 {project.imgs.map((imgNum, imgIdx) => (
                   <img
                     key={imgNum}
-                    src={require(`../imgs/Capture${imgNum}.jpeg`)}
+                    src={require(`../assets/imgs/Capture${imgNum}.jpeg`)}
                     alt={`Project ${project.name} img ${imgIdx}`}
                     className={`fade-img ${selected[projIdx] === imgIdx ? "in" : "out"}`}
                     style={{opacity: selected[projIdx] === imgIdx ? 1 : 0}}

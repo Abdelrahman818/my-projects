@@ -1,0 +1,1 @@
+add some styles for projects comp

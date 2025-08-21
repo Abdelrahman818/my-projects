@@ -1,0 +1,67 @@
+.icon {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.earth-cont {
+  position: absolute;
+  width: calc(100% - 10px);
+  height: 150vh;
+  bottom: -100%;
+  animation-name: shakeit;
+  animation-duration: 10s;
+  animation-timing-function: cubic-bezier(0.45, 0.01, 0.53, 0.99);
+  animation-iteration-count: infinite;
+  animation-fill-mode: backwards;
+  overflow: hidden;
+}
+.earth {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 150vh;
+  width: calc(100% - 10px);
+  background-image: url("../assets/icons/earth.png");
+  transition-duration: .3s;
+  overflow: hidden;
+}
+.keys-icons {
+  position: absolute;
+  bottom: 70px;
+  height: 80px;
+  padding: 0 30px;
+}
+.enter {
+  background-image: url("../assets/icons/enter.png");
+  width: 65px;
+  height: 65px;
+  font-size: 25px;
+  color: #ceb7ff;
+  span {
+    position: absolute;
+    top: -35px;
+  }
+}
+.trans-arrows {
+  background-image: url("../assets/icons/arrows.png");
+  width: 65px;
+  height: 65px;
+  font-size: 25px;
+  color: #ceb7ff;
+  margin-right: 35px;
+  span {
+    position: absolute;
+    top: -35px;
+    right: 30px;
+  }
+}
+
+@keyframes shakeit {
+  0% {
+    transform: rotate(-1deg);
+  } 50% {
+    transform: rotate(1deg);
+  } 100% {
+    transform: rotate(-1deg);
+  }
+}

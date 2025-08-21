@@ -9,7 +9,7 @@ const Navbar = () => {
     <>
       <nav className="main-nav bg-dark color-light justify-content-space w-100 shadow-lg">
         <div className="logo">
-          <img src={require('../logo.png')} alt="sorry" />
+          <img src={require('../assets/logo.png')} alt="sorry" />
         </div>
         <div className="more position-relative" onClick={toggleVisable}>
           <i

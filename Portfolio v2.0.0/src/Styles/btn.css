@@ -1,0 +1,38 @@
+.space-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  text-align: center;
+  padding: 15px;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  font-size: 25px;
+  transition-duration: .5s;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 999;
+}
+.space-btn:hover {
+  bottom: 83px;
+  box-shadow: 0 0 0 0 #fff;
+}
+.corner {
+  position: absolute;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 36px;
+  background-image: url(../assets/icons/corner.png);
+}
+.tl {
+  top: 0px;
+  left: 0px;
+}
+.br {
+  bottom: 0px;
+  right: 0px;
+  transform: rotate(180deg);
+}

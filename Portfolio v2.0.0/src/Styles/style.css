@@ -1,0 +1,158 @@
+@font-face {
+  font-family: 'Death Star';
+  src: url('../assets/fonts/Death\ Star.otf') format('truetype');
+}
+* {
+  font-family: 'Death Star', sans-serif;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+}
+:root {
+  --main-color: #ceb7ff;
+  --form-color: hsl(260deg 50% 10% / 67%);
+  --animation-timing: cubic-bezier(0.52, 0.13, 0.83, 0.43);
+  --cairo: 'cairo', sans-serif;
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+  border-radius: 10px;
+}
+html {
+  overflow: hidden;
+}
+#root {
+  color: var(--main-color);
+  background-color: #000;
+  height: 100vh;
+}
+main {
+  width: 100%;
+  height: 100vh;
+}
+section {
+  height: 100%;
+  width: 100%;
+  padding: 0 30px;
+}
+.hollow {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--main-color);
+}
+.hide {
+  display: none !important;
+}
+.transp {
+  opacity: 0;
+}
+.title-cont {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  margin: auto;
+  padding-top: 50px;
+  margin-bottom: 100px;
+  h2 {
+    margin: 5px 0 10px 0;
+  }
+}
+.title-cont::after,
+.title-cont::before {
+  content: '';
+  width: 100%;
+  height: 10px;
+  border: 1px solid var(--main-color);
+}
+.title {
+  font-size: 45px;
+}
+.fade-in {
+  opacity: 1;
+  transition-duration: .2s;
+}
+.fade-out {
+  opacity: 0;
+  transition-duration: .2s;
+}
+.cursor {
+  animation-name: cursor;
+  animation-duration: .7s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+}
+.shrink-btn {
+  animation-name: shrink-btn;
+  animation-duration: .5s;
+  animation-timing-function: var(--animation-timing);
+  animation-fill-mode: forwards;
+}
+.shrink-console {
+  animation-name: shrink-console;
+  animation-duration: .7s;
+  animation-timing-function: var(--animation-timing);
+  animation-fill-mode: forwards;
+}
+.extend {
+  animation-name: extend;
+  animation-duration: .7s;
+  animation-timing-function: var(--animation-timing);
+  animation-fill-mode: forwards;
+  width: 45%;
+  height: 230px;
+  padding: 20px;
+}
+@keyframes cursor {
+  from {
+    opacity: 1;
+  } to {
+    opacity: 0;
+  }
+}
+@keyframes shrink-btn {
+  0% {
+    height: 105px;
+    width: 200px;
+  } 40% {
+    height: 0;
+    width: 200px;
+  } 100% {
+    height: 0;
+    width: 0;
+    padding: 20px;
+  }
+}
+@keyframes shrink-console {
+  0% {
+    width: 45%;
+    height: 230px;
+  } 40% {
+    width: 45%;
+    height: 0;
+  } 100% {
+    width: 0;
+    height: 0;
+    padding: 20px;
+  }
+}
+@keyframes extend {
+  0% {
+    border: none;
+    height: 0;
+    width: 0;
+  } 40% {
+    border: none;
+    height: 0;
+    width: 45%;
+  } 100% {
+    width: 45%;
+    height: 230px;
+    padding: 20px;
+  }
+}
