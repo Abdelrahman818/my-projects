@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 import Greeting from "./Greeting";
 import Projects from "./Projects";
@@ -17,75 +17,65 @@ import "../Styles/responsive.css";
 
 const Landing = ({ os }) => {
   const [idx, setIdx] = useState(0);
-  const [greet, setGreet] = useState(true);
-  const [projects, setProjects] = useState(false);
-  const [skills, setSkills] = useState(false);
-  const [contact, setContact] = useState(false);
+
+  const renderComp = useCallback(() => {
+    // This function is now stable
+  }, []);
+
+  const handleKeyDown = useCallback(
+    (key) => {
+      if (key.key === "ArrowRight") {
+        setIdx((prev) => Math.min(prev + 1, 3));
+      } else if (key.key === "ArrowLeft") {
+        setIdx((prev) => Math.max(prev - 1, 0));
+      }
+    },
+    []
+  );
+
   useEffect(() => {
-    document.onkeydown = (key) => {
-      renderComp();
-      if (key.key === "ArrowRight" && (idx < 3)) setIdx(idx + 1);
-      else if (key.key === "ArrowLeft" && (idx !== 0)) setIdx(idx - 1);
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
     };
-    renderComp();
-  }, [idx]);
-  const renderComp = () => {
-    switch (idx) {
-      case 0:
-        setGreet(true);
-        setSkills(false);
-        setProjects(false);
-        setContact(false)
-        break;
-      case 1:
-        setGreet(false);
-        setSkills(true);
-        setProjects(false);
-        setContact(false)
-        break;
-      case 2:
-        setGreet(false);
-        setSkills(false);
-        setProjects(true);
-        setContact(false)
-        break;
-      case 3:
-        setGreet(false);
-        setSkills(false);
-        setProjects(false);
-        setContact(true)
-        break;
-      default:
-        setGreet(true);
-        setProjects(false);
-        setSkills(false);
-        setContact(false)
-        break;
-    }
+  }, [handleKeyDown]);
+
+  const show = {
+    greet: idx === 0,
+    skills: idx === 1,
+    projects: idx === 2,
+    contact: idx === 3,
   };
 
   return (
     <main>
-      <Greeting show={greet} />
-      <Skills show={skills} />
-      <Projects show={projects} />
-      <Contact show={contact} />
-      <Links show={!projects} />
+      <Greeting show={show.greet} />
+      <Skills show={show.skills} />
+      <Projects show={show.projects} />
+      <Contact show={show.contact} />
+
+      <Links show={!show.projects} />
+
       <div className="earth-cont">
-        <div className="earth icon" style={{transform: `translate(-50%, -50%) rotate(${idx * 90}deg)`}}></div>
+        <div
+          className="earth icon"
+          style={{
+            transform: `translate(-50%, -50%) rotate(${idx * 90}deg)`,
+          }}
+        ></div>
       </div>
-        { os === 'desktop' &&
-          <>
-            <div className="keys-icons d-flex w-100 justify-content-between align-items-center">
-              <div className="enter icon">
-                <span>open</span>
-              </div>
-              <div className="trans-arrows icon">
-                <span>translate</span>
-              </div>
-            </div>
-          </>
-        }
+
+      {os === "desktop" && (
+        <div className="keys-icons d-flex w-100 justify-content-between align-items-center">
+          <div className="enter icon">
+            <span>open</span>
+          </div>
+          <div className="trans-arrows icon">
+            <span>translate</span>
+          </div>
+        </div>
+      )}
     </main>
   );
 };
