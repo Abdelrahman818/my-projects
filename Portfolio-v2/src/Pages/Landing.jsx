@@ -43,7 +43,32 @@ const Landing = ({ os }) => {
 
   return (
     <main>
-      {/* components */}
+      <Greeting show={show.greet} />
+      <Skills show={show.skills} />
+      <Projects show={show.projects} />
+      <Contact show={show.contact} />
+
+      <Links show={!show.projects} />
+
+      <div className="earth-cont">
+        <div
+          className="earth icon"
+          style={{
+            transform: `translate(-50%, -50%) rotate(${idx * 90}deg)`,
+          }}
+        ></div>
+      </div>
+
+      {os === "desktop" && (
+        <div className="keys-icons d-flex w-100 justify-content-between align-items-center">
+          <div className="enter icon">
+            <span>open</span>
+          </div>
+          <div className="trans-arrows icon">
+            <span>translate</span>
+          </div>
+        </div>
+      )}
     </main>
   );
 };
